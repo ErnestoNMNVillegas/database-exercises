@@ -2,7 +2,7 @@ USE codeup_test_db;
 
 
 -- The name of all albums by Pink Floyd.
--- SELECT name AS 'Albums by Pink Floyd' FROM albums WHERE artist = 'Pink Floyd';
+-- Example given:  SELECT name AS 'Albums by Pink Floyd' FROM albums WHERE artist = 'Pink Floyd';
 SELECT name 'Albums by Pink Floyd' FROM albums WHERE artist = 'Pink Floyd';
 -- The year Sgt. Pepper's Lonely Hearts Club Band was released
 SELECT release_date 'Year Sgt. Pepper''s Lonely Hearts Club Band was released' FROM albums WHERE name = 'Sgt. Pepper''s Lonely Hearts Club Band';
