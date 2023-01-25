@@ -1,7 +1,5 @@
 USE codeup_test_db;
 
-
-
 -- All albums in your table.
     --     Make all the albums 10 times more popular (sales * 10)
 SELECT name 'All albums after they became 10x more popular' FROM albums;
@@ -9,6 +7,8 @@ UPDATE albums
 SET sales = sales * 10
     WHERE sales != 0;
 SELECT * FROM albums;
+
+--Note:  WHERE not needed.
 
 -- All albums released before 1980
 --     Move all the albums before 1980 back to the 1800s.
