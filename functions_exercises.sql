@@ -27,6 +27,7 @@ WHERE year(hire_date) BETWEEN 1990 AND 1999
   AND month(birth_date) = 12
   AND day(birth_date) = 25
   ORDER BY hire_date DESC;
+# Note from walk-thru:  birth_date should go before hire_date after ORDER BY
 
 # 6
 
