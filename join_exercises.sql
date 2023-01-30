@@ -27,18 +27,13 @@ FROM departments as d
          JOIN employees as e
               ON dept_no = emp_no
 GROUP BY dept_name ORDER BY dept_name;
+# Note:  Not working
 
-
-# SELECT CONCAT(e.first_name, ' ', e.last_name) AS full_name, d.dept_name, CONCAT(year(de.from_date), ' - ', year(de.to_date))
-# FROM employees as e
-#          JOIN dept_emp as de
-#               ON de.emp_no = e.emp_no
-#          JOIN departments as d
-#               ON d.dept_no = de.dept_no
-# WHERE e.emp_no = 10018;
-#
-# SELECT e.first_name , e.last_name
-# FROM employees e
-#          JOIN dept_emp de on e.emp_no = de.emp_no
-#          JOIN departments d on d.dept_no = de.dept_no
-# WHERE d.dept_name = 'Development';
+# Find the current salary of all current managers.
+SELECT dept_name AS Department_Name, CONCAT(first_name, ' ', last_name), salary AS Salary
+FROM employees as e
+         JOIN dept_manager as dm
+              ON dm.emp_no = e.emp_no
+         JOIN departments as d
+              ON d.dept_no = dm.dept_no
+WHERE dm.to_date = '9999-01-01' ORDER BY dept_name;
