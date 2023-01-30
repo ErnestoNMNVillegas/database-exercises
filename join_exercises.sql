@@ -30,10 +30,16 @@ GROUP BY dept_name ORDER BY dept_name;
 # Note:  Not working
 
 # Find the current salary of all current managers.
+
 SELECT dept_name AS Department_Name, CONCAT(first_name, ' ', last_name), salary AS Salary
 FROM employees as e
          JOIN dept_manager as dm
-              ON dm.emp_no = e.emp_no
+              ON e.emp_no = dm.emp_no
          JOIN departments as d
               ON d.dept_no = dm.dept_no
+         JOIN salaries s
+              ON e.emp_no = s.emp_no
 WHERE dm.to_date = '9999-01-01' ORDER BY dept_name;
+
+# Note:  Listing more than one salary for each manager even though date set to present.
+
