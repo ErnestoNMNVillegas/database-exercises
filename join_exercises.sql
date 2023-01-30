@@ -22,12 +22,13 @@ WHERE dm.to_date = '9999-01-01' AND gender = 'F' ORDER BY dept_name;
 
 # Find the current titles of employees currently working in the Customer Service department.
 
-SELECT dept_name AS Title, COUNT(*) AS Total
-FROM departments as d
-         JOIN employees as e
-              ON dept_no = emp_no
-GROUP BY dept_name ORDER BY dept_name;
-# Note:  Not working
+SELECT title AS Title, COUNT(*) AS Total
+FROM employees as e
+        JOIN titles t on e.emp_no = t.emp_no
+        JOIN dept_emp de on e.emp_no = de.emp_no
+WHERE dept_no = 'd009'
+GROUP BY title ORDER BY COUNT(*);
+# Note:  Not working.  Does not match text
 
 # Find the current salary of all current managers.
 
@@ -39,7 +40,7 @@ FROM employees as e
               ON d.dept_no = dm.dept_no
          JOIN salaries s
               ON e.emp_no = s.emp_no
-WHERE dm.to_date = '9999-01-01' ORDER BY dept_name;
+WHERE s.to_date = '9999-01-01' AND dm.to_date = '9999-01-01' ORDER BY dept_name;
 
 # Note:  Listing more than one salary for each manager even though date set to present.
 
