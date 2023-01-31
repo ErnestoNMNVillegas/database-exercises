@@ -42,5 +42,4 @@ FROM employees as e
               ON e.emp_no = s.emp_no
 WHERE s.to_date = '9999-01-01' AND dm.to_date = '9999-01-01' ORDER BY dept_name;
 
-# Note:  Listing more than one salary for each manager even though date set to present.
 
