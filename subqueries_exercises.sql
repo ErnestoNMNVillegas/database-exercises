@@ -25,7 +25,7 @@ GROUP BY title;
 
 # 3. Find all the current department managers that are female.
 
-SELECT employees.last_name, emp_no
+SELECT last_name, emp_no
 FROM employees
 WHERE emp_no IN (
     SELECT emp_no
